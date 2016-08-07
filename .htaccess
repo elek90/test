@@ -1,0 +1,26 @@
+#Options +FollowSymLinks -MultiViews
+RewriteEngine On
+
+#redirect all calls to public folder
+RewriteRule ^$ public/ [L]
+RewriteRule (.*) public/$1 [L]
+
+ErrorDocument 404 /errorPage.php
+RewriteBase /
+
+#Prevent access to git
+RedirectMatch 404 /\.git
+
+RewriteCond %{THE_REQUEST} ^GET\s(.*/)index\.php [NC]
+RewriteRule . %1 [NE,R=301,L]
+
+RewriteCond %{THE_REQUEST} ^GET\s.+\.php [NC]
+RewriteRule ^(.+)\.php$ /$1 [NE,R=301,L,NC]
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{DOCUMENT_ROOT}/$1.php -f
+RewriteRule ^(.*?)/?$ $1.php [L]
+
+#CORS
+Header set Access-Control-Allow-Origin "*"
+Header set Access-Control-Allow-Headers "Origin, X-Requested-With, Content-Type, Accept"

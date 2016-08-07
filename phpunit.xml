@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit    colors="true"
+            stopOnFailure="true"
+            bootstrap="test/bootstrap.php"
+>
+    <testsuites>
+        <testsuite name="Firewatch Test Suite">
+            <directory>./test/</directory>
+        </testsuite>
+    </testsuites>
+
+    <filter>
+        <whitelist >
+            <directory >./app/src</directory>
+            <directory >./app/middleware</directory>
+            <directory >./app/util</directory>
+        </whitelist>
+    </filter>
+
+</phpunit>

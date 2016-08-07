@@ -1,0 +1,14 @@
+{
+    "require": {
+        "slim/slim": "^3.0",
+        "monolog/monolog": "^1.13",
+        "phpunit/phpunit": "^5.0.0",
+        "phpunit/php-code-coverage": "^4"
+    },
+
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/src"
+        }
+    }
+}

@@ -1,0 +1,8 @@
+app/Model
+vendor/
+composer.lock
+cache/
+log/app.log
+.idea/
+*.swp
+*.DS_Store
